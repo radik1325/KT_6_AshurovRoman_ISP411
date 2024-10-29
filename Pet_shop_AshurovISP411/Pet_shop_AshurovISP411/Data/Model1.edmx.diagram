@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8d44ee7c064488f8422e84148d45a02" Name="Diagram1">
+        <EntityTypeShape EntityType="Pet_ShopModel.Category" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.City" Width="1.5" PointX="1.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.EdIzm" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Manufacture" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Name" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Order" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.OrderProduct" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.PickPoint" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Product" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Role" Width="1.5" PointX="1.5" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Status" Width="1.5" PointX="0.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Street" Width="1.5" PointX="1.5" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.Supplier" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Pet_ShopModel.User" Width="1.5" PointX="0.75" PointY="28.375" IsExpanded="true" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_PickPoint_City" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Product_EdIzm" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Product_Manufacture" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Product_Name" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Order_PickPoint" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Order_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_OrderProduct_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_OrderProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_PickPoint_Street" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_Product_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="Pet_ShopModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
