@@ -50,14 +50,16 @@ namespace Pet_shop_AshurovISP411.Pages
                     Where(d => d.UserLogin == LoginBox.Text && d.UserPassword == ParolBox.Password).FirstOrDefault();
                 switch (searchRole.Role.RoleName){
                     case "Администратор":
-                        MessageBox.Show("Админ", "Админ", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Вы вошли как Администратор", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                         Classes.Manager.MainFrame.Navigate(new Pages.AdminPage());
                         break;
                     case "Клиент":
-                        MessageBox.Show("Клиент", "Клиент", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Вы вошли как Клиент", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Classes.Manager.MainFrame.Navigate(new Pages.ProductView());
                         break;
                     case "Менеджер":
-                        MessageBox.Show("Мен", "Мен", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show( "Вы вошли как Менеджер", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Classes.Manager.MainFrame.Navigate(new Pages.ProductView());
                         break;
                 }
                 

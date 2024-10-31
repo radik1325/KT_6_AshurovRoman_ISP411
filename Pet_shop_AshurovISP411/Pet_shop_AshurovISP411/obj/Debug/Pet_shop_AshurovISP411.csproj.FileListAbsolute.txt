@@ -25,3 +25,7 @@ C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\P
 C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pet_shop_AshurovISP411.csproj.CopyComplete
 C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pages\AdminPage.g.cs
 C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pages\AdminPage.baml
+C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pages\ProductView.g.cs
+C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pages\ProductView.baml
+C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pages\AddEditPAge.g.cs
+C:\Users\comcuru\Desktop\Pract\KT_6_AshurovRoman_ISP411\Pet_shop_AshurovISP411\Pet_shop_AshurovISP411\obj\Debug\Pages\AddEditPAge.baml

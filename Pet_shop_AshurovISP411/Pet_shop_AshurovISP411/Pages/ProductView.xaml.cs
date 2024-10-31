@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace Pet_shop_AshurovISP411.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AdminPage.xaml
+    /// Логика взаимодействия для ProductView.xaml
     /// </summary>
-    public partial class AdminPage : Page
+    public partial class ProductView : Page
     {
-        public AdminPage()
+        public ProductView()
         {
             InitializeComponent();
             ViewProduct.ItemsSource = Data.Pet_ShopEntities.GetContext().Product.ToList();
-            
+
 
             var ManufactList = Data.Pet_ShopEntities.GetContext().Manufacture.ToList();
 
@@ -34,32 +34,32 @@ namespace Pet_shop_AshurovISP411.Pages
         }
 
         private List<Data.Product> _UpdateProduct = Data.Pet_ShopEntities.GetContext().Product.ToList();
-        
+
         private void Update()
         {
             _UpdateProduct = Data.Pet_ShopEntities.GetContext().Product.ToList();
 
             _UpdateProduct = (from item in Data.Pet_ShopEntities.GetContext().Product
-               where item.ProductOpis.ToLower().Contains(SearchText.Text)
-                select item).ToList();
+                              where item.ProductOpis.ToLower().Contains(SearchText.Text)
+                              select item).ToList();
 
             if (ManufactureBox.SelectedIndex != -1 && ManufactureBox.SelectedIndex != 0)
             {
-                _UpdateProduct = _UpdateProduct.Where(d => d.Manufacture.ManufactureId == ManufactureBox.SelectedIndex ).ToList();
+                _UpdateProduct = _UpdateProduct.Where(d => d.Manufacture.ManufactureId == ManufactureBox.SelectedIndex).ToList();
             }
-           
+
 
             if (OrderByButton.IsChecked == true)
             {
                 _UpdateProduct = _UpdateProduct.OrderBy(d => d.ProductCost).ToList();
             }
 
-            if(OrderBydescButton.IsChecked == true)
+            if (OrderBydescButton.IsChecked == true)
             {
                 _UpdateProduct = _UpdateProduct.OrderByDescending(d => d.ProductCost).ToList();
             }
 
-            
+
 
             ViewProduct.ItemsSource = _UpdateProduct;
         }
@@ -93,5 +93,5 @@ namespace Pet_shop_AshurovISP411.Pages
         {
             Update();
         }
-    }
+    } 
 }
