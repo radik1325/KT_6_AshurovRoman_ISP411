@@ -40,8 +40,15 @@ namespace Pet_shop_AshurovISP411.Pages
             _UpdateProduct = Data.Pet_ShopEntities.GetContext().Product.ToList();
 
             _UpdateProduct = (from item in Data.Pet_ShopEntities.GetContext().Product
-               where item.ProductOpis.ToLower().Contains(SearchText.Text)
-                select item).ToList();
+               where item.ProductOpis.ToLower().Contains(SearchText.Text)||
+               item.Name.NameName.ToLower().Contains(SearchText.Text) ||
+               item.EdIzm.EdIzmName.ToLower().Contains(SearchText.Text)||
+               item.ProductCost.ToString().Contains(SearchText.Text)||
+               item.Manufacture.ManufactureName.ToLower().Contains(SearchText.Text)||
+               item.Supplier.SupplierName.ToLower().Contains(SearchText.Text) ||
+               item.Category.CategoryName.ToLower().Contains(SearchText.Text) ||
+               item.ProductQuantityInStock.ToString().Contains(SearchText.Text) 
+                              select item).ToList();
 
             if (ManufactureBox.SelectedIndex != -1 && ManufactureBox.SelectedIndex != 0)
             {
