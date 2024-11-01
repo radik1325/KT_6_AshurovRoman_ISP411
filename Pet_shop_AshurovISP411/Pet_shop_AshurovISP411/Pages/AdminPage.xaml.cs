@@ -20,23 +20,34 @@ namespace Pet_shop_AshurovISP411.Pages
     /// </summary>
     public partial class AdminPage : Page
     {
-        public AdminPage()
+        public static int IdUser1;
+        public AdminPage( int IdUser)
         {
             InitializeComponent();
             ViewProduct.ItemsSource = Data.Pet_ShopEntities.GetContext().Product.ToList();
+            IdUser1 = IdUser;
             
-
             var ManufactList = Data.Pet_ShopEntities.GetContext().Manufacture.ToList();
 
             ManufactList.Insert(0, new Data.Manufacture { ManufactureName = "Все производители" });
             ManufactureBox.ItemsSource = ManufactList;
-
+            CountProduct.Text = Data.Pet_ShopEntities.GetContext().Product.Count().ToString();
+            CountProductFilter.Text = Data.Pet_ShopEntities.GetContext().Product.Count().ToString();
+            if (IdUser != 0)
+            {
+                var searchUser = Data.Pet_ShopEntities.GetContext().User.Where(d => d.UserID == IdUser).FirstOrDefault();
+                name.Text = searchUser.UserName;
+                surname.Text = searchUser.UserSurname;
+                Patronname.Text = searchUser.UserPatronic;
+            }
         }
+        
 
         private List<Data.Product> _UpdateProduct = Data.Pet_ShopEntities.GetContext().Product.ToList();
         
         private void Update()
         {
+            
             _UpdateProduct = Data.Pet_ShopEntities.GetContext().Product.ToList();
 
             _UpdateProduct = (from item in Data.Pet_ShopEntities.GetContext().Product
@@ -69,6 +80,7 @@ namespace Pet_shop_AshurovISP411.Pages
             
 
             ViewProduct.ItemsSource = _UpdateProduct;
+            CountProductFilter.Text = _UpdateProduct.Count().ToString();
         }
 
         private void OrderBydescButton_Checked(object sender, RoutedEventArgs e)
@@ -88,7 +100,7 @@ namespace Pet_shop_AshurovISP411.Pages
 
         private void AddProdButton_Click(object sender, RoutedEventArgs e)
         {
-            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPAge());
+            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPAge(null,IdUser1));
         }
 
         private void ManufactureBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,6 +111,16 @@ namespace Pet_shop_AshurovISP411.Pages
         private void SearchText_SelectionChanged(object sender, RoutedEventArgs e)
         {
             Update();
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPAge((sender as Button).DataContext as Data.Product,IdUser1)) ;
         }
     }
 }

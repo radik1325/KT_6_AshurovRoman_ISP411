@@ -20,11 +20,11 @@ namespace Pet_shop_AshurovISP411.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+       
         public AuthorizationPage()
         {
             InitializeComponent();
-            LoginBox.Text = "pixil59@gmail.com";
-            ParolBox.Password = "2L6KZG";
+            
         }
 
         private void VxodButoon_Click(object sender, RoutedEventArgs e)
@@ -44,6 +44,7 @@ namespace Pet_shop_AshurovISP411.Pages
                 MessageBox.Show(error.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            
             if (Data.Pet_ShopEntities.GetContext().User.Any(d => d.UserLogin == LoginBox.Text && d.UserPassword == ParolBox.Password))
             {
                 var searchRole = Data.Pet_ShopEntities.GetContext().User.
@@ -51,15 +52,15 @@ namespace Pet_shop_AshurovISP411.Pages
                 switch (searchRole.Role.RoleName){
                     case "Администратор":
                         MessageBox.Show("Вы вошли как Администратор", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Classes.Manager.MainFrame.Navigate(new Pages.AdminPage());
+                        Classes.Manager.MainFrame.Navigate(new Pages.AdminPage(searchRole.UserID));
                         break;
                     case "Клиент":
                         MessageBox.Show("Вы вошли как Клиент", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Classes.Manager.MainFrame.Navigate(new Pages.ProductView());
+                        Classes.Manager.MainFrame.Navigate(new Pages.ProductView(searchRole.UserID));
                         break;
                     case "Менеджер":
                         MessageBox.Show( "Вы вошли как Менеджер", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Classes.Manager.MainFrame.Navigate(new Pages.ProductView());
+                        Classes.Manager.MainFrame.Navigate(new Pages.ProductView(searchRole.UserID));
                         break;
                 }
                 
@@ -67,6 +68,7 @@ namespace Pet_shop_AshurovISP411.Pages
             else
             {
                 MessageBox.Show("Пользователя не существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                
             }
 
         }

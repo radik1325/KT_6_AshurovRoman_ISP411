@@ -20,7 +20,7 @@ namespace Pet_shop_AshurovISP411.Pages
     /// </summary>
     public partial class ProductView : Page
     {
-        public ProductView()
+        public ProductView(int IdUser)
         {
             InitializeComponent();
             ViewProduct.ItemsSource = Data.Pet_ShopEntities.GetContext().Product.ToList();
@@ -30,7 +30,16 @@ namespace Pet_shop_AshurovISP411.Pages
 
             ManufactList.Insert(0, new Data.Manufacture { ManufactureName = "Все производители" });
             ManufactureBox.ItemsSource = ManufactList;
+            CountProduct.Text = Data.Pet_ShopEntities.GetContext().Product.Count().ToString();
+            CountProductFilter.Text = Data.Pet_ShopEntities.GetContext().Product.Count().ToString();
 
+            if (IdUser != 0)
+            {
+                var searchUser = Data.Pet_ShopEntities.GetContext().User.Where(d => d.UserID == IdUser).FirstOrDefault();
+                name.Text = searchUser.UserName;
+                surname.Text = searchUser.UserSurname;
+                Patronname.Text = searchUser.UserPatronic;
+            }
         }
 
         private List<Data.Product> _UpdateProduct = Data.Pet_ShopEntities.GetContext().Product.ToList();
@@ -69,6 +78,7 @@ namespace Pet_shop_AshurovISP411.Pages
 
 
             ViewProduct.ItemsSource = _UpdateProduct;
+            CountProductFilter.Text = _UpdateProduct.Count().ToString();
         }
 
         private void OrderBydescButton_Checked(object sender, RoutedEventArgs e)
@@ -86,10 +96,7 @@ namespace Pet_shop_AshurovISP411.Pages
             Classes.Manager.MainFrame.Navigate(new Pages.AuthorizationPage());
         }
 
-        private void AddProdButton_Click(object sender, RoutedEventArgs e)
-        {
-            Classes.Manager.MainFrame.Navigate(new Pages.AddEditPAge());
-        }
+        
 
         private void ManufactureBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

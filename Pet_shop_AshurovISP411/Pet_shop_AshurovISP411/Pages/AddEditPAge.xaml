@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Pet_shop_AshurovISP411.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEditPAge" Background="White">
+      Title="ИС-Товары для животных, страница добавления/редактирования" Background="White">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -32,13 +32,13 @@
             </Grid.RowDefinitions>
 
             <TextBlock Text="Id" Grid.Column="0" Grid.Row="0"></TextBlock>
-            <TextBox x:Name="IdBox" Grid.Column="1" Grid.Row="0" ></TextBox>
+            <TextBox x:Name="IdBox" Grid.Column="1" Grid.Row="0" IsReadOnly="True" ></TextBox>
 
             <TextBlock Text="Наименование" Grid.Column="0" Grid.Row="1"></TextBlock>
             <TextBox x:Name="NameBox" Grid.Column="1" Grid.Row="1" ></TextBox>
 
             <TextBlock Text="Категория" Grid.Column="0" Grid.Row="2"></TextBlock>
-            <ComboBox x:Name="CategoryBox" Grid.Column="1" Grid.Row="2" ></ComboBox>
+            <ComboBox x:Name="CategoryBox" Grid.Column="1" Grid.Row="2" DisplayMemberPath="CategoryName"></ComboBox>
 
             <TextBlock Text="Количество на складе" Grid.Column="0" Grid.Row="3"></TextBlock>
             <TextBox x:Name="QuintityBox" Grid.Column="1" Grid.Row="3" ></TextBox>
@@ -53,11 +53,15 @@
             <TextBox x:Name="CostBox" Grid.Column="3" Grid.Row="0" ></TextBox>
 
             <TextBlock Text="Описание" Grid.Column="2" Grid.Row="1"></TextBlock>
-            <TextBox x:Name="OpisBox" Grid.Column="3" Grid.Row="1" ></TextBox>
+            <TextBox x:Name="OpisBox" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Height="60" />
+
+            <TextBlock Text="Фотография(В разработке)" Grid.Column="2" Grid.Row="4"></TextBlock>
+            <Image Source="/Resources/picture.png" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Height="60" />
+
         </Grid>
 
         <Grid Grid.Row="1">
-            <Button VerticalAlignment="Center" HorizontalAlignment="Right" Content="Добавить" Margin="0,0,80,0"></Button>
+            <Button VerticalAlignment="Center" HorizontalAlignment="Right" Content="Добавить" Margin="0,0,80,0" x:Name="SaveButton" Click="SaveButton_Click"></Button>
             <Button VerticalAlignment="Center" HorizontalAlignment="Left" Content="Назад" Margin="80,0,0,0"  x:Name="BackButtot" Click="BackButtot_Click"></Button>
         </Grid>
     </Grid>
